@@ -11,7 +11,7 @@ var cheerio = require("cheerio");
 var mkdirp = require('mkdirp');
 
 //目标网址
-var baseUrl = 'https://api.instagram.com/v1/users/3421301663/media/recent/?access_token=3421301663.bf46c23.080fa8877b604b61931920f8820b1ced';
+var baseUrl = 'https://api.instagram.com/v1/users/YOUR_USER_ID/media/recent/?access_token=YOUR_USER_TOKEN';
 
 //本地存储目录
 var dir = '../../source/img/photo';
