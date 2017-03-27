@@ -1,0 +1,29 @@
+{
+  "name": "nodejs-instagram",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/luojinghui/nodejs-ins"
+  },
+  "keywords": [
+    "node.js",
+    "instagram"
+  ],
+  "author": "Luo-jinghui",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luojinghui/nodejs-ins/issues"
+  },
+  "homepage": "http://luojh.me",
+  "devDependencies": {
+    "cheerio": "^0.18.0",
+    "fs": "0.0.2",
+    "mkdirp": "^0.5.0",
+    "request": "^2.51.0"
+  }
+}
