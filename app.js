@@ -11,9 +11,11 @@ var cheerio = require("cheerio");
 var mkdirp = require('mkdirp');
 
 //目标网址
+//在此处替换你的user_id，和token
 var baseUrl = 'https://api.instagram.com/v1/users/YOUR_USER_ID/media/recent/?access_token=YOUR_USER_TOKEN';
 
 //本地存储目录
+//注意，我的最终目录是在source目录底下
 var dir = '../../source/img/photo';
 
 //创建目录
