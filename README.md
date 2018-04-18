@@ -34,6 +34,17 @@ request({uri: baseUrl,'proxy':'http://localhost:1080'}, function (error, respons
 
 ```
 
+以及
+
+```
+//下载方法
+var download = function (url, dir, filename) {
+  request.head(url, function (err, res, body) {
+    request({uri: url,'proxy':'http://localhost:1080'}).pipe(fs.createWriteStream(dir + "/" + filename + ".jpg"));
+  });
+};
+```
+
 由于超时的情况不是所有人都有发生，并且代理端口号根据代理软件的不同也可能不同因此不能直接修改代码，只能视情况添加
 
 
