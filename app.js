@@ -12,11 +12,12 @@ var mkdirp = require('mkdirp');
 
 //目标网址
 //在此处替换你的user_id，和token
-var baseUrl = 'https://api.instagram.com/v1/users/YOUR_USER_ID/media/recent/?access_token=YOUR_USER_TOKEN';
+// var baseUrl = 'https://api.instagram.com/v1/users/YOUR_USER_ID/media/recent/?access_token=YOUR_USER_TOKEN';
+var baseUrl = 'https://api.instagram.com/v1/users/7408520229/media/recent/?access_token=7408520229.13f8fba.07c1b0169eaa4272b861000e0f76b289';
 
 //本地存储目录
 //注意，我的最终目录是在source目录底下
-var dir = '../../source/img/photo';
+var dir = './img/';
 
 //创建目录
 mkdirp(dir, function (err) {
@@ -102,7 +103,7 @@ request({uri: baseUrl,'proxy':'http://localhost:9667'}, function (error, respons
     });
 
     //获取的json数据保存到本地备用
-    fs.writeFile('F:/Blog/blog-backups/hushhw.github.io/source/instagram/ins.json',body,function(err){
+    fs.writeFile('../ins.json',body,function(err){
       if(err) throw err;
       console.log('write JSON into TEXT');
     });

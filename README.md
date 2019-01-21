@@ -1,5 +1,5 @@
 # Node.js-instagram
-Hexo个人博客进阶-相册，使用nodejs拉取ins上的图片并保存json数据。
+[Hexo个人博客进阶-相册](http://luojh.me/2018/01/28/blog2/)，使用nodejs拉取ins上的图片并保存json数据。
 ## 安装Node.js
 http://nodejs.org/download/
 ## 安装依赖包
