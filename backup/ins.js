@@ -79,11 +79,6 @@
       };
     }
 
-    /**
-     * @name impush-client
-     * @description 这个项目让我发家致富…
-     * @date 2016-12-1
-     */
 
     var _collection = [];
     var _count = 0;
@@ -111,6 +106,7 @@
       }
     };
 
+    //获取年月日
     var getDate = function getDate(timeString) {
       var time = new Date(parseInt(timeString) * 1000);
       var y = time.getFullYear();
@@ -118,19 +114,30 @@
       var d = time.getDate();
       return y+'-'+add0(m)+'-'+add0(d);
     };
+
+
+
     var render = function render(res) {
       var ulTmpl = "";
       for (var j = 0, len2 = res.data.length; j < len2; j++) {
         var data = res.data[j];
-        var liTmpl = "";
+        var length;
+        if(data.type=="carousel"){
+        	length = data.carousel_media.length;
+        } else {
+        	length = 1;
+        }
+        
+        for(var i = 0; i < length; i++){
+        	var liTmpl = "";
 
-          var minSrc = '/img/photo/' + data.id + '.min.jpg';
-          var src = '/img/photo/' + data.id + '.jpg';
-          var type = 'image';
-          var wrapText = data.caption || {};
-          var realText = wrapText.text || "么么哒~~";
+          	var minSrc = '/assets/img/photo/' + data.id + '_' + i + '.min.jpg';
+          	var src = '/assets/img/photo/' + data.id + '_' + i + '.jpg';
+          	var type = 'image';
+          	var wrapText = data.caption || {};
+          	var realText = wrapText.text || "么么哒~~";
 
-          liTmpl += '<figure class="thumb" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">\
+          	liTmpl += '<figure class="thumb" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">\
                 <a href="' + src + '" itemprop="contentUrl" data-size="640x640" data-type="' + type + '" data-target=".jpg">\
                   <img class="reward-img" data-type="' + type + '" data-src="' + minSrc + '" src="'+ minSrc +'" itemprop="thumbnail" onload="lzld(this)">\
                   <h1 class="year">'+ getDate(data.created_time) +'</h1>\
@@ -138,12 +145,14 @@
                 <figcaption style="display:none" itemprop="caption description">' + realText + '</figcaption>\
             </figure>';
 
-        ulTmpl = ulTmpl +  liTmpl;
+        	ulTmpl = ulTmpl +  liTmpl;
+        } 
       }
       document.querySelector('.img-box-ul').innerHTML = '<div class="photos" itemscope="" itemtype="http://schema.org/ImageGallery">' + ulTmpl + '</div>';
       createVideoIncon();
       _view2.default.init();
     };
+
 
     var replacer = function replacer(str) {
       var arr = str.split("/");
